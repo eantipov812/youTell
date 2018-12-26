@@ -11,8 +11,17 @@ import VisualRecognitionV3
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var newWordButton: UIBarButtonItem!
     @IBOutlet weak var barButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var confidenceLabel: UILabel!
+    @IBOutlet weak var listenInLabel: UILabel!
+    @IBOutlet weak var languagePickerView: UIPickerView!
+    @IBOutlet weak var listenButton: UIButton!
+    
+    // Define Available Languages
+    let languages = ["Eng", "Rus"]
     
     var classificationResults : [String] = []
     var confidence: [Double] = []
@@ -27,6 +36,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Set delegate and data source for the picker view
+        languagePickerView.dataSource = self
+        languagePickerView.delegate = self
+        
+        // Update Title
         navigationItem.title = "Let's see!"
         imagePicker.delegate = self
         
@@ -65,5 +79,50 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
-
+    
+    
+    @IBAction func newWordButtonPressed(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func listenButtonPressed(_ sender: Any) {
+    }
+    
+    
 }
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return languages.count
+    }
+    /*
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+    */
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return languages[row]
+    }
+    
+    /*
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var myImageView = UIImageView()
+        
+        switch row {
+        case 0:
+            myImageView = UIImageView(image: UIImage(named: "american_flag"))
+        case 1:
+            myImageView = UIImageView(image: UIImage(named: "russian_flag"))
+        default:
+            myImageView.image = nil
+        }
+        return myImageView
+    }
+    */
+ }
