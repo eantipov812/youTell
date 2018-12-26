@@ -8,6 +8,7 @@
 
 import UIKit
 import VisualRecognitionV3
+import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -30,6 +31,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let apiKey = "25ESV2meG8icq4NmUSO1K0uBtT0rmdbJ974zbBlm6NzE"
     let version = "2018-12-25"
     let watsonURL = "https://gateway.watsonplatform.net/visual-recognition/api"
+    
+    // Initialize Synthesizer
+    let synthesizer = AVSpeechSynthesizer()
     
     // Initialize Image Picker
     let imagePicker = UIImagePickerController()
@@ -68,9 +72,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             self.confidence.append(classes[index].score)
                         }
                     }
-                }
+                    
+                    DispatchQueue.main.async {
+                        // Add the recognized image and the confidence to the labels
+                        self.wordLabel.text = self.classificationResults[0]
+                        self.confidenceLabel.text = (String(self.confidence[0] * 100) + "%")
+                        
+                    }
+              }
             }
-            }
+          }
         }
     
     
@@ -87,6 +98,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func listenButtonPressed(_ sender: Any) {
+        // Implement the method to hear the word
+        let string_word = "Hello, the word is " + wordLabel.text!
+        let utterance = AVSpeechUtterance(string: string_word)
+        utterance.rate = 0.4
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        synthesizer.speak(utterance)
     }
     
     
