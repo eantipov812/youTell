@@ -1,4 +1,6 @@
+github "Alamofire/Alamofire" "5.0.0.beta.1"
 github "SVProgressHUD/SVProgressHUD" "2.2.5"
+github "SwiftyJSON/SwiftyJSON" "4.2.0"
 github "daltoniam/Starscream" "3.0.5"
 github "watson-developer-cloud/restkit" "2.0.0"
 github "watson-developer-cloud/swift-sdk" "1.1.0"

@@ -9,6 +9,9 @@
 import UIKit
 import VisualRecognitionV3
 import AVFoundation
+import Alamofire
+import SwiftyJSON
+import LanguageTranslatorV3
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -22,15 +25,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var listenButton: UIButton!
     
     // Define Available Languages
-    let languages = ["Eng", "Rus"]
+    let languages = ["Eng", "Rus", "Esp"]
     
     var classificationResults : [String] = []
     var confidence: [Double] = []
     
     // Initialize constants - API Key, Watson URL
-    let apiKey = "25ESV2meG8icq4NmUSO1K0uBtT0rmdbJ974zbBlm6NzE"
-    let version = "2018-12-25"
-    let watsonURL = "https://gateway.watsonplatform.net/visual-recognition/api"
+    let apiKey = Constants.apiKey
+    let version = Constants.version
+    let watsonURL = Constants.watsonURL
+    
+    let translationAPIKey = Constants.translationAPIKey
+    let translationURL = Constants.translationURL
     
     // Initialize Synthesizer
     let synthesizer = AVSpeechSynthesizer()
@@ -73,12 +79,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         }
                     }
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.sync {
                         // Add the recognized image and the confidence to the labels
                         self.wordLabel.text = self.classificationResults[0]
                         self.confidenceLabel.text = (String(self.confidence[0] * 100) + "%")
                         
-                    }
+                }
               }
             }
           }
@@ -104,7 +110,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         utterance.rate = 0.4
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
+        
+        /*
+        let language_translator = LanguageTranslator(version: "Version1", apiKey: "L3JlJIQZmL581yviaIxL_FWIDCmzI5r28EOQggyyQBBT", iamUrl: "https://gateway.watsonplatform.net/language-translator/api")
+        
+        language_translator.translate(text: ["Hello"], source: "en", target: "ru") { (translationResponse, translationError) in
+            print(translationResponse)
+        }
+        */
     }
+    
     
     
 }
@@ -117,29 +132,22 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return languages.count
     }
-    /*
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-    }
-    */
+
     
+    // Row Label is Represented as a Flag
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return languages[row]
-    }
-    
-    /*
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var myImageView = UIImageView()
-        
+        var rowLabel : String?
         switch row {
         case 0:
-            myImageView = UIImageView(image: UIImage(named: "american_flag"))
+            rowLabel = "🇺🇸"
         case 1:
-            myImageView = UIImageView(image: UIImage(named: "russian_flag"))
+            rowLabel = "🇷🇺"
+        case 2:
+            rowLabel = "🇪🇸"
         default:
-            myImageView.image = nil
+            rowLabel = nil
         }
-        return myImageView
+        return rowLabel
     }
-    */
+    
  }

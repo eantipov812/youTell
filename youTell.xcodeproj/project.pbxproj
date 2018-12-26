@@ -18,6 +18,13 @@
 		0C10A01421D2E1F200A6E0C0 /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C10A00F21D2E1F200A6E0C0 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0C10A01521D2E1F200A6E0C0 /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C10A01021D2E1F200A6E0C0 /* VisualRecognitionV3.framework */; };
 		0C10A01621D2E1F200A6E0C0 /* VisualRecognitionV3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C10A01021D2E1F200A6E0C0 /* VisualRecognitionV3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C14130121D3E60E00457FE1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1412FF21D3E60D00457FE1 /* Alamofire.framework */; };
+		0C14130221D3E60E00457FE1 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1412FF21D3E60D00457FE1 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C14130321D3E60E00457FE1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C14130021D3E60D00457FE1 /* SwiftyJSON.framework */; };
+		0C14130421D3E60E00457FE1 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C14130021D3E60D00457FE1 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C14130621D3F04800457FE1 /* LanguageTranslatorV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C14130521D3F04800457FE1 /* LanguageTranslatorV3.framework */; };
+		0C14130721D3F04800457FE1 /* LanguageTranslatorV3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C14130521D3F04800457FE1 /* LanguageTranslatorV3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C14130921D3FBD800457FE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14130821D3FBD800457FE1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,8 +35,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0C10A01421D2E1F200A6E0C0 /* SVProgressHUD.framework in Embed Frameworks */,
+				0C14130721D3F04800457FE1 /* LanguageTranslatorV3.framework in Embed Frameworks */,
 				0C10A01621D2E1F200A6E0C0 /* VisualRecognitionV3.framework in Embed Frameworks */,
 				0C10A01221D2E1F200A6E0C0 /* RestKit.framework in Embed Frameworks */,
+				0C14130221D3E60E00457FE1 /* Alamofire.framework in Embed Frameworks */,
+				0C14130421D3E60E00457FE1 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +57,10 @@
 		0C10A00E21D2E1F200A6E0C0 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		0C10A00F21D2E1F200A6E0C0 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		0C10A01021D2E1F200A6E0C0 /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisualRecognitionV3.framework; path = Carthage/Build/iOS/VisualRecognitionV3.framework; sourceTree = "<group>"; };
+		0C1412FF21D3E60D00457FE1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		0C14130021D3E60D00457FE1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		0C14130521D3F04800457FE1 /* LanguageTranslatorV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LanguageTranslatorV3.framework; path = Carthage/Build/iOS/LanguageTranslatorV3.framework; sourceTree = "<group>"; };
+		0C14130821D3FBD800457FE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +69,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C10A01321D2E1F200A6E0C0 /* SVProgressHUD.framework in Frameworks */,
+				0C14130621D3F04800457FE1 /* LanguageTranslatorV3.framework in Frameworks */,
 				0C10A01521D2E1F200A6E0C0 /* VisualRecognitionV3.framework in Frameworks */,
 				0C10A01121D2E1F200A6E0C0 /* RestKit.framework in Frameworks */,
+				0C14130121D3E60E00457FE1 /* Alamofire.framework in Frameworks */,
+				0C14130321D3E60E00457FE1 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +83,9 @@
 		0C109FF021D2CF8500A6E0C0 = {
 			isa = PBXGroup;
 			children = (
+				0C14130521D3F04800457FE1 /* LanguageTranslatorV3.framework */,
+				0C1412FF21D3E60D00457FE1 /* Alamofire.framework */,
+				0C14130021D3E60D00457FE1 /* SwiftyJSON.framework */,
 				0C10A00E21D2E1F200A6E0C0 /* RestKit.framework */,
 				0C10A00F21D2E1F200A6E0C0 /* SVProgressHUD.framework */,
 				0C10A01021D2E1F200A6E0C0 /* VisualRecognitionV3.framework */,
@@ -85,6 +105,7 @@
 		0C109FFB21D2CF8500A6E0C0 /* youTell */ = {
 			isa = PBXGroup;
 			children = (
+				0C1EFD9D21D3DF3200FEC402 /* Constants */,
 				0C109FFC21D2CF8500A6E0C0 /* AppDelegate.swift */,
 				0C109FFE21D2CF8500A6E0C0 /* ViewController.swift */,
 				0C10A00021D2CF8500A6E0C0 /* Main.storyboard */,
@@ -93,6 +114,14 @@
 				0C10A00821D2CF8700A6E0C0 /* Info.plist */,
 			);
 			path = youTell;
+			sourceTree = "<group>";
+		};
+		0C1EFD9D21D3DF3200FEC402 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0C14130821D3FBD800457FE1 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +198,7 @@
 			files = (
 				0C109FFF21D2CF8500A6E0C0 /* ViewController.swift in Sources */,
 				0C109FFD21D2CF8500A6E0C0 /* AppDelegate.swift in Sources */,
+				0C14130921D3FBD800457FE1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
